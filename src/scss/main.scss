@@ -22,30 +22,18 @@
       background-repeat: no-repeat;
       background-size: auto;
       background-position: right;
-      justify-content: center;
-      align-items: center;
-      &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-image: linear-gradient(
-          to right,
-          #000 0%,
-          #000 60%,
-          rgba(0, 0, 0, 0) 100%
-        );
-        @media (max-width: 601px) {
-          background-color: #000;
-        }
-        z-index: 1;
+      justify-content: flex-start;
+      align-items: stretch;
+      background-color: #000;
+      @media (max-width: 991px) {
+        background-image: none !important;
       }
     }
     .pushdown-content {
       width: 90%;
-      margin: auto;
+      max-width: 730px;
+      margin-left: 100px;
+      margin-right: 100px;
       z-index: 2;
       position: relative;
       display: flex;
@@ -53,6 +41,28 @@
       align-items: flex-start;
       justify-items: center;
       justify-content: center;
+      background-color: #000;
+      @media (max-width: 991px) {
+        margin: auto;
+        &::after {
+          content: none !important;
+        }
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -100px;
+        width: 100px;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 1) 0%,
+          rgba(0, 0, 0, 1) 5%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        z-index: 1;
+      }
       .pushdown-title {
         color: #fff;
         font-size: 46px;
@@ -107,6 +117,10 @@
       letter-spacing: -0.17px;
       margin: 0;
       padding: 10px;
+      @media (max-width: 401px) {
+        padding: 10px;
+        font-size: 14px;
+      }
     }
     svg {
       margin-left: 5px;
